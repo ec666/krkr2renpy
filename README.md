@@ -9,7 +9,8 @@
 
 转换器会读取 `.ks`（KAG 语法）剧本，产出 `.rpy` 脚本、整理好的图片 / 音频 / 字体资源，并自动生成主菜单、存档、读档、历史记录、设置等完整界面，转换后可直接用 Ren'Py SDK 运行。
 
-![GUI 截图](docs/images/gui.png)
+<img width="862" height="752" alt="ScreenShot_2026-10-25_205306_380" src="https://github.com/user-attachments/assets/f2bdd05b-a12d-4c57-8280-412533c4f5e3" />
+
 
 ---
 
