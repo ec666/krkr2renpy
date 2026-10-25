@@ -1,0 +1,877 @@
+{
+  "meta": {
+    "version": "2.0.0",
+    "target": "Ren'Py 7.3.2",
+    "source": "Kirikiri/KAG .ks",
+    "note": "所有转换行为都在本文件定义；krkr2renpy.py 不硬编码任何标签语义。"
+  },
+  "input": {
+    "legacy_encodings": [
+      "gb18030",
+      "gbk",
+      "cp932"
+    ],
+    "japanese_kana_guard": true,
+    "note": "汉化补丁多为 GBK/GB18030，gb18030 是 GBK 超集故排最前；kana guard 用于避免把日文原名误判成中文。"
+  },
+  "files": {
+    "auto": [
+      "A000.ks",
+      "A001.ks",
+      "A002.ks",
+      "A003.ks",
+      "A004.ks",
+      "A005.ks",
+      "A006.ks",
+      "A007.ks",
+      "A008.ks",
+      "A009.ks",
+      "A010.ks",
+      "B000.ks",
+      "Z000.ks",
+      "ending.ks",
+      "logo.ks",
+      "kaiso01.ks",
+      "kaiso02.ks",
+      "kaiso03.ks",
+      "kaiso04.ks",
+      "kaiso05.ks",
+      "kaiso06.ks",
+      "kaiso07.ks",
+      "kaiso08.ks",
+      "kaiso09.ks",
+      "kaiso10.ks",
+      "kaiso11.ks",
+      "kaiso12.ks",
+      "kaiso13.ks",
+      "kaiso14.ks",
+      "kaiso15.ks"
+    ],
+    "manual": [
+      "first.ks",
+      "title.ks",
+      "about.ks",
+      "macro.ks",
+      "system_macro.ks",
+      "system_config.ks",
+      "system_load.ks",
+      "system_save.ks",
+      "system_subroutine.ks",
+      "systembutton.ks",
+      "systembutton_sub.ks",
+      "mindbutton.ks",
+      "mindbutton_sub.ks",
+      "album.ks",
+      "album_init.ks",
+      "scene.ks",
+      "scene_init.ks",
+      "battle.ks",
+      "gvolume2.ks",
+      "slider_control.ks",
+      "windowzoom.ks",
+      "SaveAnyWhere.ks",
+      "TJSFunctions.ks",
+      "RenameKAGTag.ks",
+      "Macro_Layers.ks",
+      "ExtHistoryLayer.ks",
+      "eruby.ks",
+      "loadmenu.ks",
+      "ExtHistoryLayer.ks"
+    ],
+    "unknown_tier": "manual"
+  },
+  "labels": {
+    "prefix": "%STEM%_",
+    "entry": "entry",
+    "note": "单下划线命名：A000.ks 的入口是 A000_entry，章节 chapter1_0 是 A000_chapter1_0。"
+  },
+  "output": {
+    "start_target": "A000.ks",
+    "splash_target": "logo.ks",
+    "logo_jump_start": true,
+    "logo_jump_target": "main_menu",
+    "quit_action": "Quit(confirm=True)",
+    "main_menu_action": "",
+    "se_channels": 5,
+    "game_title": "每日亲吻洛丽塔",
+    "game_version": "1.0",
+    "header": [
+      "# 源文件: %NAME%",
+      "# 编码: %ENC%   档位: %TIER%",
+      "# 本文件由 krkr2renpy 生成；行尾 # L#### 指向 .ks 原始行号。"
+    ],
+    "line_comment_format": "  # L%04d",
+    "comment_line_format": "# L%04d  ",
+    "report_md": "conversion_report.md",
+    "report_csv": "todo_report.csv",
+    "note": "背景一律直接 scene，不再使用 onlayer backdrop。",
+    "fullscreen": true,
+    "skip_unseen": true,
+    "developer": false,
+    "font": "fonts/1.ttf"
+  },
+  "text": {
+    "escape_order": [
+      "\\",
+      "{",
+      "[",
+      "\""
+    ],
+    "escape": {
+      "\\": "\\\\",
+      "{": "{{",
+      "[": "[[",
+      "\"": "\\\""
+    },
+    "ruby_template": "{rb}%CH%{/rb}{rt}%RT%{/rt}",
+    "default_transition_time": 0.5
+  },
+  "characters": {
+    "prefix": "speaker_",
+    "fallback": "chara_%d",
+    "colors": [
+      "#ffffff",
+      "#ffe0e8",
+      "#d8ecff",
+      "#fff0c8",
+      "#e6dcff",
+      "#d8ffe8"
+    ],
+    "overrides": {
+      "僕": "boku",
+      "私": "watashi",
+      "俺": "ore",
+      "彼": "kare",
+      "少女": "shoujo",
+      "我": "ore",
+      "花咲": "hanasaki"
+    },
+    "kana_roman": {
+      "あ": "a",
+      "い": "i",
+      "う": "u",
+      "え": "e",
+      "お": "o",
+      "か": "ka",
+      "き": "ki",
+      "く": "ku",
+      "け": "ke",
+      "こ": "ko",
+      "さ": "sa",
+      "し": "shi",
+      "す": "su",
+      "せ": "se",
+      "そ": "so",
+      "た": "ta",
+      "ち": "chi",
+      "つ": "tsu",
+      "て": "te",
+      "と": "to",
+      "な": "na",
+      "に": "ni",
+      "ぬ": "nu",
+      "ね": "ne",
+      "の": "no",
+      "は": "ha",
+      "ひ": "hi",
+      "ふ": "fu",
+      "へ": "he",
+      "ほ": "ho",
+      "ま": "ma",
+      "み": "mi",
+      "む": "mu",
+      "め": "me",
+      "も": "mo",
+      "や": "ya",
+      "ゆ": "yu",
+      "よ": "yo",
+      "ら": "ra",
+      "り": "ri",
+      "る": "ru",
+      "れ": "re",
+      "ろ": "ro",
+      "わ": "wa",
+      "を": "o",
+      "ん": "n",
+      "ゔ": "vu",
+      "が": "ga",
+      "ぎ": "gi",
+      "ぐ": "gu",
+      "げ": "ge",
+      "ご": "go",
+      "ざ": "za",
+      "じ": "ji",
+      "ず": "zu",
+      "ぜ": "ze",
+      "ぞ": "zo",
+      "だ": "da",
+      "ぢ": "ji",
+      "づ": "zu",
+      "で": "de",
+      "ど": "do",
+      "ば": "ba",
+      "び": "bi",
+      "ぶ": "bu",
+      "べ": "be",
+      "ぼ": "bo",
+      "ぱ": "pa",
+      "ぴ": "pi",
+      "ぷ": "pu",
+      "ぺ": "pe",
+      "ぽ": "po",
+      "ぁ": "a",
+      "ぃ": "i",
+      "ぅ": "u",
+      "ぇ": "e",
+      "ぉ": "o",
+      "ゃ": "ya",
+      "ゅ": "yu",
+      "ょ": "yo",
+      "ゎ": "wa",
+      "きゃ": "kya",
+      "きゅ": "kyu",
+      "きょ": "kyo",
+      "しゃ": "sha",
+      "しゅ": "shu",
+      "しょ": "sho",
+      "ちゃ": "cha",
+      "ちゅ": "chu",
+      "ちょ": "cho",
+      "にゃ": "nya",
+      "にゅ": "nyu",
+      "にょ": "nyo",
+      "ひゃ": "hya",
+      "ひゅ": "hyu",
+      "ひょ": "hyo",
+      "みゃ": "mya",
+      "みゅ": "myu",
+      "みょ": "myo",
+      "りゃ": "rya",
+      "りゅ": "ryu",
+      "りょ": "ryo",
+      "ぎゃ": "gya",
+      "ぎゅ": "gyu",
+      "ぎょ": "gyo",
+      "じゃ": "ja",
+      "じゅ": "ju",
+      "じょ": "jo",
+      "びゃ": "bya",
+      "びゅ": "byu",
+      "びょ": "byo",
+      "ぴゃ": "pya",
+      "ぴゅ": "pyu",
+      "ぴょ": "pyo"
+    }
+  },
+  "sprites": {
+    "screen_width": 1024,
+    "screen_height": 768,
+    "default_layer": 2,
+    "postolayer": {
+      "left2": 0,
+      "left": 0,
+      "left_center": 1,
+      "center": 2,
+      "right_center": 3,
+      "right": 4,
+      "right2": 4
+    },
+    "positions": {
+      "left2": 244,
+      "left": 278,
+      "left_center": 384,
+      "center": 512,
+      "right_center": 640,
+      "right": 690,
+      "right2": 780
+    }
+  },
+  "assets": {
+    "root": "auto",
+    "copy_mode": "link",
+    "extensions": [
+      ".png",
+      ".jpg",
+      ".jpeg",
+      ".webp"
+    ],
+    "audio_extensions": [
+      ".ogg",
+      ".wav",
+      ".mp3"
+    ],
+    "image_dirs": [
+      {
+        "dir": "bgimage",
+        "tag": "bg",
+        "target": "images/bg"
+      },
+      {
+        "dir": "fgimage",
+        "tag": "fg",
+        "target": "images/fg"
+      },
+      {
+        "dir": "image",
+        "tag": "ui",
+        "target": "images/ui"
+      },
+      {
+        "dir": "rule",
+        "tag": "rule",
+        "target": "images/rule"
+      }
+    ],
+    "audio_dirs": [
+      {
+        "dir": "bgm",
+        "kind": "bgm",
+        "target": "audio/bgm"
+      },
+      {
+        "dir": "sound",
+        "kind": "sound",
+        "target": "audio/se"
+      }
+    ],
+    "lookup": {
+      "bgi": [
+        "bg",
+        "ui"
+      ],
+      "fgi": [
+        "fg"
+      ],
+      "ui": [
+        "ui"
+      ],
+      "rule": [
+        "rule"
+      ]
+    }
+  },
+  "control": {
+    "max_if_depth": 1,
+    "expression": {
+      "operators": [
+        [
+          "===",
+          "=="
+        ],
+        [
+          "!==",
+          "!="
+        ],
+        [
+          "==",
+          "=="
+        ],
+        [
+          "!=",
+          "!="
+        ],
+        [
+          "<=",
+          "<="
+        ],
+        [
+          ">=",
+          ">="
+        ],
+        [
+          "&&",
+          " and "
+        ],
+        [
+          "||",
+          " or "
+        ]
+      ],
+      "banned": [
+        "[",
+        "]",
+        "{",
+        "}",
+        "(",
+        ")",
+        "?",
+        ":",
+        "%",
+        "$",
+        "+",
+        "*",
+        "/",
+        "!",
+        "void"
+      ],
+      "var_prefixes": {
+        "f.": "persistent.f_",
+        "sf.": "persistent.sf_",
+        "tf.": "persistent.tf_"
+      },
+      "rejected_identifiers": [
+        "kag",
+        "mp",
+        "Storages",
+        "Scripts",
+        "System",
+        "typeof",
+        "void",
+        "Math",
+        "String",
+        "Array",
+        "Dictionary",
+        "int",
+        "real"
+      ]
+    }
+  },
+  "memory": {
+    "enabled": true,
+    "function": "renpy.free_memory",
+    "call_style": "plain",
+    "guard_flag": "use_free_memory",
+    "comment_tag": "mem",
+    "after_jump_call": true,
+    "loops": {
+      "image_tags": [
+        "fgi",
+        "bgi",
+        "image",
+        "pimage",
+        "graph",
+        "himage",
+        "button",
+        "layopt"
+      ]
+    },
+    "segments": {
+      "label_patterns": [
+        "album",
+        "scene_menu",
+        "scene_loop",
+        "scene_redraw",
+        "album_loop",
+        "album_redraw",
+        "hp",
+        "battle"
+      ]
+    },
+    "scene_mode": "boundary",
+    "scene": {
+      "boundary_storages": [
+        "black",
+        "white"
+      ],
+      "boundary_attrs": [
+        "msgc",
+        "rule"
+      ],
+      "line_gap": 10,
+      "label_window": 3,
+      "dedupe_same_storage": true
+    },
+    "regions": [
+      "stage",
+      "adv",
+      "nvl",
+      "gallery",
+      "minigame"
+    ],
+    "regions_note": "regions 仅作文档用；实际插入由 scene_mode/loops/segments 决定。",
+    "cache": {
+      "mb": 256,
+      "custom_mb": 384
+    },
+    "declarations": [
+      "default persistent.memory_mode = 0",
+      "default persistent.use_free_memory = True"
+    ]
+  },
+  "macros": {
+    "flag_ending_1_done": "$ persistent.sf_ending_1 = True",
+    "flag_ending_2_done": "$ persistent.sf_ending_2 = True",
+    "flag_ending_3_done": "$ persistent.sf_ending_3 = True",
+    "flag_ending_good_done": "$ persistent.sf_ending_good = True",
+    "flag_ending_normal_done": "$ persistent.sf_ending_normal = True",
+    "flag_common_1_done": "$ persistent.sf_flag_common_1 = True",
+    "flag_g_init": "$ persistent.f_param_g = 0",
+    "flag_g_add": "$ persistent.f_param_g = getattr(persistent, 'f_param_g', 0) + 1",
+    "flag_g_sub": "$ persistent.f_param_g = getattr(persistent, 'f_param_g', 0) - 1",
+    "flag_h_add": "$ persistent.f_param_h = getattr(persistent, 'f_param_h', 0) + 1",
+    "flag_h_sub": "$ persistent.f_param_h = getattr(persistent, 'f_param_h', 0) - 1",
+    "eruby": null
+  },
+  "tags": {
+    "pl": {
+      "action": "say_end"
+    },
+    "p": {
+      "action": "say_end"
+    },
+    "l": {
+      "action": "text_click",
+      "text": "\\n{w}"
+    },
+    "r": {
+      "action": "text_newline",
+      "text": "\\n"
+    },
+    "rl": {
+      "action": "text_click",
+      "text": "\\n{w}\\n"
+    },
+    "speaker": {
+      "action": "speaker"
+    },
+    "voice": {
+      "action": "voice"
+    },
+    "ruby": {
+      "action": "ruby"
+    },
+    "heart": {
+      "action": "inline_image",
+      "asset": "heart_30",
+      "kind": "ui"
+    },
+    "bgi": {
+      "action": "scene",
+      "lookup": "bgi"
+    },
+    "image": {
+      "action": "image_layer"
+    },
+    "fgi": {
+      "action": "sprite_show",
+      "lookup": "fgi"
+    },
+    "fgc": {
+      "action": "sprite_hide"
+    },
+    "msgc": {
+      "action": "window_hide"
+    },
+    "msgv": {
+      "action": "window_show"
+    },
+    "startadv": {
+      "action": "noop_comment",
+      "note": "KAG ADV 窗口切换；内置屏幕已等价"
+    },
+    "startnovel": {
+      "action": "noop_comment",
+      "note": "KAG NVL 窗口切换；需人工"
+    },
+    "wait": {
+      "action": "pause"
+    },
+    "waitclick": {
+      "action": "pause_click"
+    },
+    "playbgm": {
+      "action": "audio_play",
+      "kind": "bgm",
+      "channel": "music"
+    },
+    "fadeinbgm": {
+      "action": "audio_play",
+      "kind": "bgm",
+      "channel": "music"
+    },
+    "fadeoutbgm": {
+      "action": "audio_stop",
+      "kind": "bgm",
+      "channel": "music"
+    },
+    "stopbgm": {
+      "action": "audio_stop",
+      "kind": "bgm",
+      "channel": "music"
+    },
+    "playse": {
+      "action": "audio_play",
+      "kind": "sound",
+      "channel": "se0"
+    },
+    "stopse": {
+      "action": "audio_stop",
+      "kind": "se",
+      "channel": "se0"
+    },
+    "fadeoutse": {
+      "action": "audio_stop",
+      "kind": "se",
+      "channel": "se0"
+    },
+    "jump": {
+      "action": "jump"
+    },
+    "call": {
+      "action": "call"
+    },
+    "return": {
+      "action": "return"
+    },
+    "allclear": {
+      "action": "clear_all"
+    },
+    "backlay": {
+      "action": "noop_comment",
+      "note": "KAG 双缓冲"
+    },
+    "if": {
+      "action": "control_if"
+    },
+    "elsif": {
+      "action": "control_elsif"
+    },
+    "else": {
+      "action": "control_else"
+    },
+    "endif": {
+      "action": "control_endif"
+    },
+    "eval": {
+      "action": "todo",
+      "reason": "TJS 表达式求值（[eval]）",
+      "category": "tjs"
+    },
+    "emb": {
+      "action": "todo",
+      "reason": "TJS 表达式内嵌文本（[emb]）",
+      "category": "tjs"
+    },
+    "iscript": {
+      "action": "todo",
+      "reason": "TJS 脚本块（[iscript]）",
+      "category": "tjs"
+    },
+    "endscript": {
+      "action": "todo",
+      "reason": "TJS 脚本块结束",
+      "category": "tjs"
+    },
+    "macro": {
+      "action": "todo",
+      "reason": "KAG 宏定义",
+      "category": "macro"
+    },
+    "endmacro": {
+      "action": "todo",
+      "reason": "KAG 宏定义结束",
+      "category": "macro"
+    },
+    "evtf": {
+      "action": "todo",
+      "reason": "CG 回览标记（sf.album_flag），需为 Ren'Py 相册重新实现",
+      "category": "flag"
+    },
+    "scef": {
+      "action": "todo",
+      "reason": "回想场景标记（sf.scene_flag），需为 Ren'Py 回想重新实现",
+      "category": "flag"
+    },
+    "evtcg": {
+      "action": "todo",
+      "reason": "CG 标记 + image 包装宏",
+      "category": "flag"
+    },
+    "quake": {
+      "action": "todo",
+      "reason": "震屏演出（可改用 ATL vpunch/hpunch，需人工确认幅度）",
+      "category": "effect"
+    },
+    "trans": {
+      "action": "todo",
+      "reason": "手工转场（[trans] 依赖 KAG 双缓冲）",
+      "category": "effect"
+    },
+    "stoptrans": {
+      "action": "todo",
+      "reason": "手工转场控制",
+      "category": "effect"
+    },
+    "graph": {
+      "action": "todo",
+      "reason": "文本内联图像（[graph]），需确认尺寸与基线",
+      "category": "inline-graphic"
+    },
+    "himage": {
+      "action": "todo",
+      "reason": "历史层图像",
+      "category": "history"
+    },
+    "hbutton": {
+      "action": "todo",
+      "reason": "历史层按钮",
+      "category": "history"
+    },
+    "position": {
+      "action": "todo",
+      "reason": "消息层布局（[position]），内置屏幕不兼容",
+      "category": "layer-layout"
+    },
+    "current": {
+      "action": "todo",
+      "reason": "消息层切换（[current]）",
+      "category": "layer-layout"
+    },
+    "locate": {
+      "action": "todo",
+      "reason": "消息层坐标（[locate]）",
+      "category": "layer-layout"
+    },
+    "layopt": {
+      "action": "todo",
+      "reason": "层属性（[layopt]）",
+      "category": "layer-layout"
+    },
+    "button": {
+      "action": "todo",
+      "reason": "KAG 图形按钮，需改写为 Ren'Py screen",
+      "category": "ui"
+    },
+    "link": {
+      "action": "todo",
+      "reason": "文本内链接",
+      "category": "ui"
+    },
+    "endlink": {
+      "action": "todo",
+      "reason": "文本内链接结束",
+      "category": "ui"
+    },
+    "rclick": {
+      "action": "todo",
+      "reason": "右键行为设置",
+      "category": "ui"
+    },
+    "tempload": {
+      "action": "todo",
+      "reason": "KAG 临时书签恢复",
+      "category": "save"
+    },
+    "tempsave": {
+      "action": "todo",
+      "reason": "KAG 临时书签保存",
+      "category": "save"
+    },
+    "save": {
+      "action": "todo",
+      "reason": "KAG 存档",
+      "category": "save"
+    },
+    "load": {
+      "action": "todo",
+      "reason": "KAG 读档",
+      "category": "save"
+    },
+    "history": {
+      "action": "todo",
+      "reason": "历史记录开关",
+      "category": "history"
+    },
+    "mappfont": {
+      "action": "todo",
+      "reason": "KAG 字体映射（VLGothic tft）",
+      "category": "font"
+    },
+    "font": {
+      "action": "todo",
+      "reason": "文本字体属性",
+      "category": "font"
+    },
+    "defstyle": {
+      "action": "todo",
+      "reason": "消息层样式",
+      "category": "font"
+    },
+    "resetstyle": {
+      "action": "todo",
+      "reason": "消息层样式重置",
+      "category": "font"
+    },
+    "cm": {
+      "action": "noop_comment",
+      "note": "清空消息层光标，say 屏幕自动处理"
+    },
+    "er": {
+      "action": "noop_comment",
+      "note": "清空消息层文本"
+    },
+    "s": {
+      "action": "noop_comment",
+      "note": "KAG 停止执行等待点击；Ren'Py say 天然等待"
+    },
+    "wt": {
+      "action": "noop_comment",
+      "note": "KAG 转场等待；Ren'Py with 同步等待"
+    },
+    "wm": {
+      "action": "noop_comment",
+      "note": "KAG move 等待"
+    },
+    "cancelskip": {
+      "action": "noop_comment",
+      "note": "跳过控制由 Ren'Py 接管"
+    },
+    "clickskip": {
+      "action": "noop_comment",
+      "note": "跳过控制由 Ren'Py 接管"
+    },
+    "disablestore": {
+      "action": "todo",
+      "reason": "存档禁用开关",
+      "category": "save"
+    },
+    "bgmopt": {
+      "action": "noop_comment",
+      "note": "BGM 音量；Ren'Py 由偏好设置接管"
+    },
+    "seopt": {
+      "action": "noop_comment",
+      "note": "SE 音量；Ren'Py 由偏好设置接管"
+    },
+    "title": {
+      "action": "todo",
+      "reason": "窗口标题设置",
+      "category": "ui"
+    },
+    "nowait": {
+      "action": "noop_comment",
+      "note": "取消等待"
+    },
+    "delay": {
+      "action": "noop_comment",
+      "note": "文本显示速度切换"
+    },
+    "style": {
+      "action": "todo",
+      "reason": "文本样式（[style]）",
+      "category": "font"
+    },
+    "unlocklink": {
+      "action": "todo",
+      "reason": "解除链接锁定",
+      "category": "ui"
+    },
+    "close": {
+      "action": "todo",
+      "reason": "关闭游戏窗口",
+      "category": "ui"
+    },
+    "gotostart": {
+      "action": "todo",
+      "reason": "回到标题",
+      "category": "ui"
+    },
+    "startanchor": {
+      "action": "noop_comment",
+      "note": "标题锚点，跳过"
+    }
+  },
+  "templates": {
+    "screens_rpy": "# -*- coding: utf-8 -*-\n# =============================================================================\n# 界面层（由 krkr2renpy 自动生成）\n# 包含：对话框 / 选项 / 主菜单 / 快捷菜单 / 总菜单 / 历史 / 存档读档 / 设置 / 确认框\n#\n# 说明：\n#   * 纯内联样式，不依赖 gui.rpy，任何项目都能直接运行\n#   * 中文界面如需中文字体：把字体放到 game/fonts/ 下，并取消下面\n#     \"style default\" 里 font 那一行的注释、填上字体文件名\n#   * 历史记录采用翻页式（更省内存、更适合手柄）\n#   * 键盘 Esc / 手柄 Start 或 Minus 呼出总菜单\n# =============================================================================\n\n# -----------------------------------------------------------------------------\n# 基础样式\n# -----------------------------------------------------------------------------\n\nstyle default:\n    size 26\n    color \"#f2f2f5\"\n    outlines [ (2, \"#00000099\", 0, 0) ]\n{FONT_LINE}\n\nstyle ruby_style is default:\n    size 14\n    yoffset -16\n\nstyle button:\n    padding (12, 8, 12, 8)\n    background \"#ffffff10\"\n    hover_background \"#ffffff22\"\n\nstyle button_text:\n    size 28\n    color \"#ffffff\"\n    hover_color \"#ffd1e4\"\n    selected_color \"#ffd1e4\"\n    insensitive_color \"#9a9aa4\"\n    outlines [ (2, \"#000000\", 0, 0) ]\n\nstyle bar:\n    xsize 320\n    ysize 20\n    left_bar Solid(\"#ff9ec4\")\n    right_bar Solid(\"#ffffff30\")\n    thumb None\n    thumb_shadow None\n\n# -----------------------------------------------------------------------------\n# 对话框（底部一条横带，不再整屏蒙黑）\n# -----------------------------------------------------------------------------\n\nstyle say_window:\n    background \"#000000c4\"\n    xfill True\n    ysize 190\n    yalign 1.0\n    padding (60, 20, 60, 26)\n\nstyle say_who:\n    color \"#ffb8d2\"\n    size 28\n    outlines [ (2, \"#000000cc\", 0, 0) ]\n\nstyle say_dialogue:\n    color \"#ffffff\"\n    size 26\n    line_leading 12\n    ruby_style style.ruby_style\n    outlines [ (2, \"#000000aa\", 0, 0) ]\n\nstyle namebox:\n    background \"#000000b4\"\n    xpos 40\n    ypos -46\n    padding (20, 6, 20, 6)\n\nscreen say(who, what):\n    window:\n        id \"window\"\n        style \"say_window\"\n\n        if who is not None:\n            window:\n                id \"namebox\"\n                style \"namebox\"\n                text who id \"who\" style \"say_who\"\n\n        text what id \"what\" style \"say_dialogue\"\n\n# -----------------------------------------------------------------------------\n# 选项\n# -----------------------------------------------------------------------------\n\nstyle choice_button is button:\n    xsize 620\n    xalign 0.5\n\nstyle choice_button_text is button_text:\n    text_align 0.5\n\nscreen choice(items):\n    style_prefix \"choice\"\n\n    vbox:\n        xalign 0.5\n        yalign 0.45\n        spacing 16\n\n        for i in items:\n            textbutton i.caption action i.action\n\n# -----------------------------------------------------------------------------\n# 快捷菜单（对话时右上角，打开菜单会自动隐藏）\n# -----------------------------------------------------------------------------\n\ndefault quick_menu = True\n\ninit python:\n    if \"quick_menu\" not in config.overlay_screens:\n        config.overlay_screens.append(\"quick_menu\")\n\nscreen quick_menu():\n    zorder 100\n\n    if quick_menu:\n        frame:\n            background \"#00000077\"\n            xalign 1.0\n            yalign 0.0\n            xoffset -14\n            yoffset 10\n            padding (16, 8, 16, 8)\n\n            hbox:\n                spacing 14\n\n                textbutton \"历史\" action ShowMenu(\"history\") text_size 21\n                textbutton \"自动\" action Preference(\"auto-forward\", \"toggle\") text_size 21\n                textbutton \"跳过\" action Skip() alternate Skip(fast=True, confirm=True) text_size 21\n                textbutton \"保存\" action ShowMenu(\"save\") text_size 21\n                textbutton \"读取\" action ShowMenu(\"load\") text_size 21\n                textbutton \"设置\" action ShowMenu(\"prefs\") text_size 21\n                textbutton \"隐藏\" action HideInterface() text_size 21\n\n# -----------------------------------------------------------------------------\n# 总菜单（菜单键呼出）\n# -----------------------------------------------------------------------------\n\ninit 999 python:\n    # 引擎默认 _game_menu_screen 可能为 None（按菜单键没反应），这里指定成总菜单。\n    store._game_menu_screen = \"game_menu\"\n\nscreen game_menu():\n    modal True\n    add Solid(\"#0a0a10f0\")\n\n    frame:\n        background \"#12121aee\"\n        xalign 0.5\n        yalign 0.5\n        xsize 620\n        padding (40, 34, 40, 34)\n\n        vbox:\n            spacing 12\n            xfill True\n\n            text \"菜单\" size 34 xalign 0.5\n            null height 8\n\n            textbutton \"返回游戏\" action Return()\n            textbutton \"历史记录\" action ShowMenu(\"history\")\n            textbutton \"保存进度\" action ShowMenu(\"save\")\n            textbutton \"读取进度\" action ShowMenu(\"load\")\n            textbutton \"设置\" action ShowMenu(\"prefs\")\n            textbutton \"返回主菜单\" action MainMenu(confirm=True)\n\n# -----------------------------------------------------------------------------\n# 主菜单\n# -----------------------------------------------------------------------------\n\nlabel main_menu:\n    call screen main_menu\n\n    if _return == \"start\":\n        return\n    elif _return == \"load\":\n        call screen load\n        jump main_menu\n    elif _return == \"prefs\":\n        call screen prefs\n        jump main_menu\n    else:\n        jump main_menu\n\nscreen main_menu():\n    modal True\n\n    # 有标题图就用，没有就纯色背景\n    if renpy.loadable(\"images/ui/title.png\"):\n        add \"images/ui/title.png\"\n    else:\n        add Solid(\"#1a1a2e\")\n\n    frame:\n        background \"#0000009e\"\n        xalign 0.985\n        yalign 0.5\n        xsize 300\n        padding (26, 24, 26, 24)\n\n        vbox:\n            spacing 10\n            xfill True\n\n            text \"[config.name!t]\" size 20 color \"#ffffffcc\" xalign 0.5\n            null height 6\n\n            textbutton \"开始游戏\" action Return(\"start\")\n            textbutton \"读取存档\" action Return(\"load\")\n            textbutton \"设置\" action Return(\"prefs\")\n            textbutton \"退出游戏\" action Quit(confirm=True)\n\n# -----------------------------------------------------------------------------\n# 历史记录（翻页式）\n# -----------------------------------------------------------------------------\n\nscreen history():\n    modal True\n    add Solid(\"#0a0a10f0\")\n\n    default hist_page = 0\n\n    $ per_page = 7\n    $ total = len(_history_list)\n    $ pages = max(1, (total + per_page - 1) // per_page)\n    $ cur = max(0, min(hist_page, pages - 1))\n    $ page_end = total - cur * per_page\n    $ page_start = max(0, page_end - per_page)\n\n    frame:\n        background \"#12121aee\"\n        xalign 0.5\n        yalign 0.5\n        xsize 920\n        ysize 690\n        padding (30, 22, 30, 22)\n\n        vbox:\n            spacing 10\n\n            text \"历史记录\" size 34 xalign 0.5\n\n            frame:\n                background \"#ffffff08\"\n                xfill True\n                ysize 470\n                padding (18, 12, 18, 12)\n\n                vbox:\n                    spacing 14\n\n                    if not total:\n                        text \"（还没有对话记录）\" size 26 color \"#aaaaaa\" xalign 0.5\n\n                    for h in _history_list[page_start:page_end]:\n                        vbox:\n                            spacing 3\n\n                            if h.who:\n                                $ who_color = \"#ffb8d2\"\n                                if h.who_args and \"color\" in h.who_args:\n                                    $ who_color = h.who_args[\"color\"]\n                                text h.who substitute False size 23 color who_color\n\n                            $ what_text = renpy.filter_text_tags(h.what or \"\", allow=[])\n                            text what_text substitute False size 23\n\n            hbox:\n                spacing 24\n                xalign 0.5\n\n                textbutton \"更早\" action SetScreenVariable(\"hist_page\", cur + 1) sensitive (cur + 1 < pages)\n                text (\"第 \" + str(cur + 1) + \" / \" + str(pages) + \" 页\") size 22 yalign 0.5\n                textbutton \"更新\" action SetScreenVariable(\"hist_page\", max(0, cur - 1)) sensitive (cur > 0)\n\n            textbutton \"返回\" action Return()\n\n# -----------------------------------------------------------------------------\n# 存档 / 读档\n# -----------------------------------------------------------------------------\n\nscreen save():\n    modal True\n    use file_slots(\"保存进度\", True)\n\nscreen load():\n    modal True\n    use file_slots(\"读取进度\", False)\n\nscreen file_slots(title, do_save):\n    add Solid(\"#0a0a10f0\")\n\n    frame:\n        background \"#12121aee\"\n        xalign 0.5\n        yalign 0.5\n        xsize 900\n        ysize 700\n        padding (28, 22, 28, 22)\n\n        vbox:\n            spacing 12\n\n            text title size 34 xalign 0.5\n\n            grid 3 2:\n                spacing 14\n                xalign 0.5\n\n                for i in range(6):\n                    $ slot = i + 1\n\n                    button:\n                        xysize (262, 230)\n                        background \"#ffffff10\"\n                        hover_background \"#ffffff28\"\n                        padding (10, 8, 10, 8)\n\n                        action (FileSave(slot, confirm=True) if do_save else FileLoad(slot))\n\n                        vbox:\n                            spacing 6\n                            xalign 0.5\n\n                            add FileScreenshot(slot) xysize (242, 182) xalign 0.5\n                            text FileTime(slot, format=\"%m-%d %H:%M\", empty=\"空槽位\") size 18 xalign 0.5\n\n            hbox:\n                spacing 24\n                xalign 0.5\n\n                textbutton \"上一页\" action FilePagePrevious()\n                $ page_no = FileCurrentPage()\n                text (\"第 \" + str(page_no) + \" 页\") size 24 yalign 0.5\n                textbutton \"下一页\" action FilePageNext()\n\n            textbutton \"返回\" action Return()\n\n# -----------------------------------------------------------------------------\n# 设置\n# -----------------------------------------------------------------------------\n\nscreen prefs():\n    modal True\n    add Solid(\"#0a0a10f0\")\n\n    frame:\n        background \"#12121aee\"\n        xalign 0.5\n        yalign 0.5\n        xsize 860\n        ysize 650\n        padding (40, 28, 40, 28)\n\n        vbox:\n            spacing 14\n\n            text \"设置\" size 34 xalign 0.5\n\n            hbox:\n                spacing 20\n                text \"文字速度\" size 26 yalign 0.5 xsize 170\n                bar value Preference(\"text speed\") yalign 0.5\n\n            hbox:\n                spacing 20\n                text \"自动前进\" size 26 yalign 0.5 xsize 170\n                bar value Preference(\"auto-forward time\") yalign 0.5\n\n            null height 10\n\n            hbox:\n                spacing 20\n                text \"音乐音量\" size 26 yalign 0.5 xsize 170\n                bar value Preference(\"music volume\") yalign 0.5\n\n            hbox:\n                spacing 20\n                text \"音效音量\" size 26 yalign 0.5 xsize 170\n                bar value Preference(\"sound volume\") yalign 0.5\n\n            hbox:\n                spacing 20\n                text \"语音音量\" size 26 yalign 0.5 xsize 170\n                bar value Preference(\"voice volume\") yalign 0.5\n\n            null height 10\n\n            $ skip_all = _preferences.skip_unseen\n            $ wait_voice = _preferences.wait_voice\n\n            textbutton (\"跳过未读文本：开\" if skip_all else \"跳过未读文本：关\") action Preference(\"skip\", \"toggle\") xalign 0.5\n            textbutton (\"自动前进等待语音：开\" if wait_voice else \"自动前进等待语音：关\") action Preference(\"wait for voice\", \"toggle\") xalign 0.5\n\n            textbutton \"返回\" action Return()\n\n# -----------------------------------------------------------------------------\n# 确认框\n# -----------------------------------------------------------------------------\n\nscreen confirm(message, yes_action, no_action):\n    modal True\n    zorder 200\n\n    add Solid(\"#000000aa\")\n\n    frame:\n        background \"#12121aee\"\n        xalign 0.5\n        yalign 0.5\n        xsize 620\n        padding (50, 40, 50, 40)\n\n        vbox:\n            spacing 30\n            xalign 0.5\n\n            text _(message) xalign 0.5 text_align 0.5 size 26\n\n            hbox:\n                spacing 90\n                xalign 0.5\n\n                textbutton \"确定\" action yes_action\n                textbutton \"取消\" action no_action\n\nscreen yesno_prompt(message, yes_action, no_action):\n    use confirm(message, yes_action, no_action)\n"
+  }
+}
