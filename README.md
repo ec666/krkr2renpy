@@ -223,7 +223,7 @@ krkr2renpy/
 
 本项目在开发过程中使用了 **DeepSeek V4.1 Flash** 辅助完成代码编写、转换规则梳理与文档整理。所有产出均经人工审核与测试。
 
-欢迎 Issue / PR，详见 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
+欢迎 Issue / PR
 
 ---
 
@@ -231,10 +231,5 @@ krkr2renpy/
 
 - [Ren'Py](https://www.renpy.org/) —— 目标引擎
 - Kirikiri / KAG —— 原剧本格式
-- 内置字体来源与授权见 [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md)
 
----
 
-## License
-
-[MIT](LICENSE) © 你的用户名
