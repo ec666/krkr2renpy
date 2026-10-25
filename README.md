@@ -144,9 +144,6 @@ renpy.exe "D:\...\out" compile
 "overrides": { "我": "ore", "花咲": "hanasaki", "美鳩": "mihato" }
 ```
 
-改完重新转换即可。详细字段说明见 [`docs/rules_reference.md`](docs/rules_reference.md)。
-
----
 
 ## 常见问题
 
@@ -197,8 +194,6 @@ renpy.exe "D:\...\out" compile
 
 1. 把 `out/game/` 的**内容**复制进打包源目录的 `romfs/Contents/game/`。
 2. 打开打包器 `py packer/nsp_pack_gui.py`，点「打包 NSP」。
-
-详见 [`docs/tutorial-nsp-packer.md`](docs/tutorial-nsp-packer.md)。
 
 ---
 
