@@ -1,0 +1,2 @@
+# krkr2renpy
+一款可将解包后的krkr游戏一键转换为renpy工程的工具，可搭配nsp打包工具将游戏移植到switch上
